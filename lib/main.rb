@@ -69,6 +69,7 @@ end
 
 =begin
  Hacer refactory de los metodos
+ El lunes hacer las pruebas
 =end
 
 juego = Juego.new
