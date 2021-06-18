@@ -38,4 +38,5 @@ class Juego
 end
 
 juego = Juego.new()
+juego2 = Juego.new()
 juego.puntuacion
