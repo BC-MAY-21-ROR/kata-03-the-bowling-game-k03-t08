@@ -16,6 +16,7 @@ class Juego
       intento.final = final
       @tiros.push(intento)
     end
+    @tiros
   end
 
   def evaluar_intento(primer_intento)
@@ -58,6 +59,7 @@ class Juego
         puts "Bonus spare: #{@tiros[i].final}"
       end
     end
+    @tiros
   end
 
   def tiro_bonus(valor)

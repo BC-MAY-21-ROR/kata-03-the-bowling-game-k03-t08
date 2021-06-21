@@ -52,7 +52,7 @@
       </span>
     </div>
     <div>
-      <h3><small>lib /</small> intento.rb</h3>
+      <h3><small>spec /</small> intento_spec.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -68,15 +68,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">18</span><small> lines of codes</small></div>
-              <div><span class="metric">3</span><small> methods</small></div>
+              <div><span class="metric">25</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">3.4</span><small> complexity/method</small></div>
-              <div><span class="metric">2</span><small> churn</small></div>
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">0</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">10.06</span><small> complexity</small></div>
+              <div><span class="metric">38.37</span><small> complexity</small></div>
               <div><span class="metric">0</span><small> duplications</small></div>
             </div>
           </div>
@@ -88,8 +88,8 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                8
-                smells
+                0
+                smell
               </a>
             </li>
           </ul>
@@ -97,23 +97,30 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">class Intento<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Irresponsible-Module.md" target="_blank"><b>IrresponsibleModule</b></a>        </span>      </div>      <span>Intento has no descriptive comment</span>          </div>  </li></ol>
-  attr_accessor :int1, :int2, :int3, :final<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Intento#final is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Intento#int1 is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Intento#int2 is a writable attribute</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Attribute.md" target="_blank"><b>Attribute</b></a>        </span>      </div>      <span>Intento#int3 is a writable attribute</span>          </div>  </li></ol>
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">require_relative &#39;../lib/intento&#39;
 
-  def initialize
-    @int1 = int1<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Intento has the variable name '@int1'</span>          </div>  </li></ol>
-    @int2 = int2<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Intento has the variable name '@int2'</span>          </div>  </li></ol>
-    @int3 = int3<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden="true"></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>Intento has the variable name '@int3'</span>          </div>  </li></ol>
-    @final = final
-  end
+RSpec.describe Intento do
+    let(:intento) {Intento.new}
+    context(&quot;Clase intento creada&quot;) do
+        it(&quot;Instanciar la clase&quot;) do
+            expect(intento).to be_instance_of(Intento)
+       end
+    
 
-  def spare_bonus
-    int1
-  end
+        it(&quot;Tiene que regresar el primer intento&quot;) do
+            intento.int1=10
+            intento1=intento.spare_bonus
+            expect(intento1).to eq(10) 
+        end
 
-  def strike_bonus
-    int1 + int2
-  end
+        it(&quot;Tiene que regresar los siguientes 2 intentos&quot;) do
+            intento.int1 = 10
+            intento.int2 = 10
+            strike_bonificacion = intento.strike_bonus
+            expect(strike_bonificacion).to eq(20)
+        end
+        
+    end
 end
 </code>
   </div>
